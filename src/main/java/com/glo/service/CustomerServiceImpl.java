@@ -47,7 +47,7 @@ public class CustomerServiceImpl implements CustomerService{
             throw new InvalidDetailsException("Invalid details, please check again Subscriber Identity Module (SIM)number/Service number!");
         }
 
-        Optional<SimDetails> simDetailsOptional = simDetailsRepo.findbySimNumberAndServiceNumber(simNumber,serviceNumber);
+        Optional<SimDetails> simDetailsOptional = simDetailsRepo.findBySimNumberAndServiceNumber(simNumber,serviceNumber);
         if(simDetailsOptional.isEmpty()){
             throw new InvalidDetailsException("Invalid details, please check again Subscriber Identity Module (SIM)number/Service number!");
         }
