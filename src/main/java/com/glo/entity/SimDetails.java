@@ -20,5 +20,6 @@ public class SimDetails {
     @Column(length = 13,unique = true)
     private String simNumber;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
 }
