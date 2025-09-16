@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface SimDetailsRepo extends JpaRepository<SimDetails, Long> {
     Optional<SimDetails> findBySimNumber(String simNumber);
-    Optional<SimDetails> findbySimNumberAndServiceNumber(String simNumber,String serviceNumber);
+    Optional<SimDetails> findBySimNumberAndServiceNumber(String simNumber,String serviceNumber);
 }
