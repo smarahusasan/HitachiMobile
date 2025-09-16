@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static com.glo.utils.AppConstants.*;
@@ -160,6 +161,10 @@ public class CustomerServiceImpl implements CustomerService{
             throw new InvalidDetailsException("Invalid details, please check again Subscriber Identity Module (SIM)number/Service number!");
 
         SimDetails sim = simOpt.get();
+        Customer customer=customerRepo.findById(identity.getUniqueIdNumber()).orElse(null);
+        assert customer != null;
+        if(!Objects.equals(sim.getId(), customer.getSimDetails().getId()))
+            throw new InvalidDetailsException("The sim is not in the customer's property");
         sim.setStatus(Status.ACTIVE);
         simDetailsRepo.save(sim);
 
