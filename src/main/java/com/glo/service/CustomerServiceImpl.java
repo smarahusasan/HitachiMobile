@@ -7,6 +7,7 @@ import com.glo.exception.DetailsDoesNotExistException;
 import com.glo.exception.InvalidDetailsException;
 import com.glo.exception.InvalidEmailException;
 import com.glo.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,7 @@ public class CustomerServiceImpl implements CustomerService{
     private final CustomerAddressRepo customerAddressRepo;
     private final CustomerIdentityRepo customerIdentityRepo;
 
+    @Autowired
     public CustomerServiceImpl(SimDetailsRepo simDetailsRepo, SimOffersRepo simOffersRepo, CustomerRepo customerRepo, CustomerAddressRepo customerAddressRepo, CustomerIdentityRepo customerIdentityRepo) {
         this.simDetailsRepo = simDetailsRepo;
         this.simOffersRepo = simOffersRepo;
