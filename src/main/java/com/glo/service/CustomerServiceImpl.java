@@ -68,7 +68,7 @@ public class CustomerServiceImpl implements CustomerService{
         if (request.getEmail() == null || request.getDate() == null || request.getEmail().isBlank() || request.getDate().isBlank()) {
             throw new InvalidDetailsException("Email/dob value is required");
         }
-        if (!EMAIL_REGEX.matcher(request.getDate()).matches())
+        if (!EMAIL_REGEX.matcher(request.getEmail()).matches())
             throw new InvalidEmailException("Invalid email");
 
         LocalDate dob;
